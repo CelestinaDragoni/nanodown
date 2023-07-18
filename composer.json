@@ -1,0 +1,27 @@
+{
+    "name": "celestinadragoni/nanodown",
+    "description": "Small, Performant, and Memory Efficient Markdown Library for PHP",
+    "type": "library",
+    "require": {
+        "php": ">=7.4",
+        "lib-pcre": "*"
+    },
+    "license": "GPL-3.0-only",
+    "authors": [
+        {
+            "name": "Celestina Dragoni",
+            "email": "code@celestinadragoni.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "files": ["src/nanodown.php"]
+    },
+    "scripts": {
+        "server": [
+            "Composer\\Config::disableProcessTimeout",
+            "php -S localhost:8000"
+        ]
+    }
+}
