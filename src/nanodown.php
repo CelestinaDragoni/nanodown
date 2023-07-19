@@ -38,42 +38,42 @@ class Nanodown
             "\n" => '',
             "\r" => '',
             "\0" => '',
-            '\*' => '&ast;',
-            '\_' => '&UnderBar;',
-            '\`' => '&grave;',
-            '\{' => '&lbrace;',
-            '\}' => '&rbrace;',
-            '\[' => '&lbrack;',
-            '\]' => '&rbrack;',
-            '\(' => '&lpar;',
-            '\)' => '&rpar;',
-            '\#' => '&num;',
-            '\~' => '&tilde;',
-            '\|' => '&VerticalLine;',
-            '\=' => '&equals;',
-            '\^' => '&Hat;',
-            '\-' => '&minus;',
-            '\+' => '&plus;',
-            '\:' => '&colon;',
+            '\*' => '&#42;',
+            '\_' => '&#95;',
+            '\`' => '&#96;',
+            '\{' => '&#123;',
+            '\}' => '&#125;',
+            '\[' => '&#91;',
+            '\]' => '&#93;',
+            '\(' => '&#40;',
+            '\)' => '&#41;',
+            '\#' => '&#35;',
+            '\~' => '&#126;',
+            '\|' => '&#124;',
+            '\=' => '&#61;',
+            '\^' => '&#94;',
+            '\-' => '&#45;',
+            '\+' => '&#43;',
+            '\:' => '&#58;',
         ],
         'code' => [
-            '*' => '&ast;',
-            '_' => '&UnderBar;',
-            '`' => '&grave;',
-            '{' => '&lbrace;',
-            '}' => '&rbrace;',
-            '[' => '&lbrack;',
-            ']' => '&rbrack;',
-            '(' => '&lpar;',
-            ')' => '&rpar;',
-            '#' => '&num;',
-            '~' => '&tilde;',
-            '|' => '&VerticalLine;',
-            '=' => '&equals;',
-            '^' => '&Hat;',
-            '-' => '&minus;',
-            '+' => '&plus;',
-            ':' => '&colon;',
+            '*' => '&#42;',
+            '_' => '&#95;',
+            '`' => '&#96;',
+            '{' => '&#123;',
+            '}' => '&#125;',
+            '[' => '&#91;',
+            ']' => '&#93;',
+            '(' => '&#40;',
+            ')' => '&#41;',
+            '#' => '&#35;',
+            '~' => '&#126;',
+            '|' => '&#124;',
+            '=' => '&#61;',
+            '^' => '&#94;',
+            '-' => '&#45;',
+            '+' => '&#43;',
+            ':' => '&#58;',
         ],
     ];
 
@@ -136,7 +136,7 @@ class Nanodown
      * @param String $markdown Markdown Input
      * @return String HTML Output
      */
-    public function convertFromString(String &$markdown) : String
+    public function convertFromString(String $markdown) : String
     {
         $this->_reset();
 
@@ -265,6 +265,10 @@ class Nanodown
      */
     private function _links(String &$line) : Void
     {
+        if ($this->_inPre) {
+            return;
+        }
+
         $line = preg_replace_callback(
             $this->_regexLinks,
             function ($matches) {

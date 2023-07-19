@@ -93,7 +93,7 @@ Links Using \[\]\(\): [Linux Kernel](http://kernel.org)
 ---
 
 ## Images
-![Acid Image](image.png)
+![Acid Image](images/image.png)
 
 ## Paragraphs
 
@@ -255,7 +255,7 @@ int main(int argc, char *argv[])
 ## HTML Code Injection (No `^^^^^`)
 <div style='background: blue; color: white;'>Oh, hi Danny...</div>
 
-## HTML Code Injection (Using `^^^^^` Wapper)
+## HTML Code Injection (Using `^^^^^`)
 ^^^^^
 <div style='background: red; color: white;'>Oh hi Mark...</div>
 ^^^^^
